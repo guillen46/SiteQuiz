@@ -1,0 +1,452 @@
+/* Estilos comuns para todas as páginas */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Cor de fundo mais escura */
+  margin: 0;
+  padding: 0;
+  color: #ddd; /* Texto claro para contraste */
+}
+
+.titulo-index{
+ color: #28a745;
+}
+
+.container {
+  width: 800px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #1e1e1e; /* Caixa de conteúdo com fundo escuro */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos específicos para a página de simulado (index.html) */
+.simulado-page {
+  display: flex;
+  margin-left: 270px; /* Espaçamento para a sidebar */
+}
+
+.simulado-page .container {
+  width: calc(100% - 270px); /* Para o conteúdo ocupar o restante do espaço */
+  background-color: #1e1e1e;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.simulado-page h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.simulado-page .pergunta {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.simulado-page button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.simulado-page button:hover {
+  background-color: #218838;
+}
+
+.simulado-page .resposta {
+  margin-top: 10px;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.simulado-page .alternativas {
+  margin-top: 15px;
+}
+
+.simulado-page input[type="radio"] {
+  background-color: #555;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.simulado-page .alternativas label {
+  display: block;
+  margin-bottom: 10px;
+  padding: 12px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: left;
+}
+
+.simulado-page .alternativas label:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+
+.simulado-page input[type="radio"]:checked + label {
+  background-color: #28a745;
+  color: white;
+}
+
+.simulado-page input[type="radio"] {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e1e, #1e1e1e);
+  color: #fff;
+  padding: 30px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.8s ease;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  color: #ffcc00;
+}
+
+.sidebar p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+.sidebar form {
+  margin-top: auto;
+}
+
+.sidebar form button {
+  width: 100%;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar form button:hover {
+  background-color: #e04343;
+  transform: scale(1.05);
+}
+
+/* Estilização para avatar e nome do usuário */
+.sidebar .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sidebar .user-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid #ffcc00;
+  object-fit: cover;
+}
+
+.sidebar .user-info .nome {
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+
+.sidebar .user-info .email {
+  font-size: 14px;
+  text-align: center;
+  color: #ccc;
+}
+
+/* Botão de logout no final da sidebar */
+.sidebar .logout-btn {
+  position: absolute;
+  bottom: 90px;
+  left: 20px;
+  right: 20px;
+  background-color: #d9534f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar .logout-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Animação suave para a troca de perguntas */
+.fade {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Estilos específicos para a página de admin (admin.html) */
+body.admin-page {
+  background-color: #121212;
+}
+
+.admin-page h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.admin-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-page label {
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.admin-page input[type="text"],
+.admin-page textarea,
+.admin-page select {
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  background-color: #333;
+  color: #fff;
+}
+
+.admin-page button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-page button:hover {
+  background-color: #005fa3;
+}
+
+.materia-link.desativado {
+  pointer-events: none;
+  opacity: 0.6;
+  cursor: default;
+}
+
+nav a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color:#218838;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+  font-family: Arial, sans-serif;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo a {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Estilos para os links da navbar */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  background-color: #218838;
+}
+
+/* Menu icon (para dispositivos móveis) */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-icon .bar {
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  margin: 4px 0;
+  border-radius: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    height: 0;
+    background-color: #218838;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: height 0.3s ease;
+  }
+
+  .nav-links.open {
+    height: 200px;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
+
+button.desativado {
+  background-color: #e0e0e0; /* Cor de fundo para parecer desativado */
+  color: #5a5a5a; /* Cor do texto para parecer desativado */
+  cursor: not-allowed; /* Muda o cursor para indicar que não pode clicar */
+  pointer-events: none; /* Impede qualquer interação com o botão */
+}
+
+button:not(.desativado) {
+  background-color: #28a745; /* Cor para quando o botão está ativado */
+  color: white; /* Cor do texto */
+  cursor: pointer; /* Mostra o cursor normal */
+}
+
+/* Estilo para o botão de perfil */
+.perfil-btn {
+  background-color: #007bff; /* Cor de fundo para o botão Perfil */
+  color: white; /* Cor do texto */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  bottom: 180px;
+  left: 20px;
+  right: 20px;
+}
+
+.perfil-btn:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+  cursor: pointer;
+}

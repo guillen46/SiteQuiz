@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Perguntas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+  <script>
+    // Autoajusta altura dos textareas
+    document.addEventListener('DOMContentLoaded', () => {
+      const textareas = document.querySelectorAll('textarea');
+  
+      textareas.forEach(textarea => {
+        textarea.setAttribute('style', 'height:' + textarea.scrollHeight + 'px;overflow-y:hidden;');
+        textarea.addEventListener('input', () => {
+          textarea.style.height = 'auto';
+          textarea.style.height = textarea.scrollHeight + 'px';
+        });
+      });
+    });
+    
+    const menuIcon = document.getElementById('menu-icon');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuIcon.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  </script>
+  
+</head>
+<nav class="navbar">
+  <div class="logo">
+    <!-- Aqui você pode colocar um ícone ou nome do site -->
+    <a href="index.php">QuizApp</a><br>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.php">Ir para Quiz</a></li>
+    <li><a href="controle_perguntas_admin.php">Controle de Perguntas</a></li>
+  </ul>
+
+  <!-- Ícone de menu para dispositivos móveis -->
+  <div class="menu-icon" id="menu-icon">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+</nav>
+<body class="admin-page">
+  <div class="container">
+    <h1>Cadastro de Perguntas</h1>
+    <form action="salvar.php" method="POST">
+      <label for="banca">Banca:</label>
+      <input type="text" name="banca" id="banca" required>
+
+      <label for="materia">Matéria:</label>
+      <input type="text" name="materia" id="materia" required>
+
+      <label for="assunto">Assunto:</label>
+      <input type="text" name="assunto" id="assunto" required>
+
+      <label for="subassunto">Subassunto (opcional):</label>
+      <input type="text" name="subassunto" id="subassunto">
+
+      <label for="enunciado">Enunciado:</label>
+      <textarea name="enunciado" id="enunciado" rows="4" required></textarea>
+
+      <label>Alternativas:</label>
+      <textarea name="alternativa_a" id="alternativa_a" required placeholder="Alternativa A"></textarea>
+      <textarea name="alternativa_b" id="alternativa_b" required placeholder="Alternativa B"></textarea>
+      <textarea name="alternativa_c" id="alternativa_c" required placeholder="Alternativa C"></textarea>
+      <textarea name="alternativa_d" id="alternativa_d" required placeholder="Alternativa D"></textarea>
+      <textarea name="alternativa_e" id="alternativa_e" placeholder="Alternativa E (opcional)"></textarea>
+
+      <label for="resposta_correta">Alternativa Correta:</label>
+      <select name="resposta_correta" id="resposta_correta" required>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="e">E</option> <!-- Adicionada aqui -->
+      </select>      
+
+      <label for="solucao">Solução da Questão:</label>
+      <textarea name="solucao" id="solucao" rows="4"></textarea>
+
+      <button type="submit">Salvar Pergunta</button>
+    </form>
+  </div>
+
+  <script>
+    CKEDITOR.replace('enunciado');
+    CKEDITOR.replace('solucao');
+  window.onload = function() {
+    // Verifica se o parâmetro sucesso existe na URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const sucesso = urlParams.get('sucesso');
+    
+    if (sucesso == '1') {
+      alert('Pergunta cadastrada com sucesso!');
+    } else if (sucesso == '0') {
+      alert('Erro ao cadastrar a pergunta. Tente novamente.');
+    }
+  };
+  </script>
+  
+</body>
+</html>
